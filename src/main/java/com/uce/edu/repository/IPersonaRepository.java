@@ -6,7 +6,8 @@ import com.uce.edu.repository.modelo.Persona;
 
 public interface IPersonaRepository {
 	public void insertar(Persona persona);
-	public void actualizar(Persona persona);
+	public Persona actualizar(Persona persona);
+	
 	public Persona consultarPorCedula(String cedula);
 	public void eliminarPorCedula(String cedula);
 	public List<Persona> consultarTodos();

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-%head =todo lo que concierne a la metadata
+
 
 <head>
 	<meta charset="UTF-8">
-
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 </head>
@@ -26,6 +26,18 @@
 				<td th:text="${persona.nombre}"></td>
 				<td th:text="${persona.apellido}"></td>
 				<td th:text="${persona.genero}"></td>
+				<td>
+					<form th:action="@{/personas/buscarPorCedula/{ced}(ced = ${persona.cedula})}"
+						th:objetct="${persona}" th:method="GET">
+						<input type="submit" value="Editar">
+					</form>
+				</td>
+				<td>
+					<form th:action="@{/personas/buscarPorCedula/{ced}(ced = ${persona.cedula})}"
+						th:objetct="${persona}" th:method="DELETE">
+						<input type="submit" value="Borrar">
+					</form>
+				</td>
 			</tr>
 		</tbody>
 	</table>
