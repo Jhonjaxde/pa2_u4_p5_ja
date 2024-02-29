@@ -43,7 +43,7 @@ public class PersonaController {
 	@GetMapping("/buscarTodos")
 	public String buscarTodos(Model modelo) {
 		List<Persona> lista = this.personaService.consultarTodos();
-		modelo.addAttribute("personas",lista);
+		modelo.addAttribute("persona",lista);
 		return "vistaListaPersonas";
 	}
 	
@@ -66,10 +66,11 @@ public class PersonaController {
 		aux.setCedula(persona.getCedula());
 		aux.setGenero(persona.getGenero());
 		aux.setNombre(persona.getNombre());
-		this.personaService.actualizar(persona);
+		this.personaService.actualizar(aux);
+		
 		return "redirect:/personas/buscarTodos";
 	}
-	@DeleteMapping("/borrar/{cedula}")
+	@DeleteMapping("/borrarPorCedula/{cedula}")
 	public String borrar(@PathVariable("cedula") String cedula) {
 		this.personaService.borrarPorCedula(cedula);
 		return "redirect:/personas/buscarTodos";
@@ -82,7 +83,7 @@ public class PersonaController {
 	
 	@GetMapping("/nuevaPersona")
 	public String mostrarNuevaPersona(Model modelo) {
-		modelo.addAttribute("persona", new Persona());
+		modelo.addAttribute("persona",new Persona());
 		return "vistaNuevaPersona";
 		
 	}

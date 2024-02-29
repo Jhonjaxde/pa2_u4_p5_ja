@@ -25,8 +25,8 @@ public class PersonaRepositoryImpl implements IPersonaRepository {
 	}
 
 	@Override
-	public Persona actualizar(Persona persona) {
-		return this.entityManager.merge(persona);
+	public void actualizar(Persona persona) {
+		 this.entityManager.merge(persona);
 	}
 
 	@Override
@@ -49,5 +49,7 @@ public class PersonaRepositoryImpl implements IPersonaRepository {
 
 		return consulta.getResultList();
 	}
+
+	
 
 }

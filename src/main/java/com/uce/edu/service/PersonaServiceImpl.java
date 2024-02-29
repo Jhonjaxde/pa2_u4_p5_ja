@@ -43,4 +43,5 @@ public class PersonaServiceImpl implements IPersonaService {
 		return this.personaRepository.consultarTodos();
 	}
 
+	
 }
